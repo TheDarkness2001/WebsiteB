@@ -1,0 +1,16 @@
+{  
+    
+    "testuser": {
+        "password": "mypassword",
+        "profile_image": "/static/uploads/testuser.png"
+    },
+
+    "Khusanboy": {
+        "password": "12345",
+        "profile_image": "/static/uploads/photo_2025-02-19_16-13-34-removebg-preview.png"
+    },
+    "malik": {
+        "password": "123",
+        "profile_image": "/static/uploads/photo_2025-02-19_16-13-40.jpg"
+    }
+}

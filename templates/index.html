@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Store</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Electronics Store</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="#">Products</a></li>
+                <a href="{{ url_for('contact') }}">Contact</a>
+
+            </ul>
+            <div class="buttons">
+                {% if username %} 
+                    <p>{{ username }}</p> 
+                    <img src="{{ profile_image }}" alt="Profile Image" width="50" height="50" style="border-radius: 50%;">
+                    <br>
+                    <a class="logout-btn" href="{{ url_for('logout') }}">Logout</a>
+                {% endif %}
+            </div>
+        </nav>
+    </header>
+    
+    <section class="products">
+        <div class="product">
+            <img src="https://paperquirks.in/cdn/shop/files/SMALLLEDBULB.jpg?v=1721458440" alt="LED Light">
+            <h2>LED Light</h2>
+            <p>$5.00</p>
+            <button>Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://my.element14.com/productimages/large/en_GB/2075382-40.jpg" alt="Arduino Board">
+            <h2>Arduino Board</h2>
+            <p>$25.00</p>
+            <button>Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/A_few_Jumper_Wires.jpg/640px-A_few_Jumper_Wires.jpg" alt="Jumper Wires">
+            <h2>Jumper Wires</h2>
+            <p>$3.00</p>
+            <button>Add to Cart</button>
+        </div>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 Electronics Store. All rights reserved.</p>
+    </footer>
+</body>
+</html>

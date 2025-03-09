@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - E-commerce Store</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='contact.css') }}">
+</head>
+<body>
+
+    <header>
+        <h1>Electronics Store</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="form-container">
+            <h2>Login</h2>
+            <form action="{{ url_for('contact') }}" method="POST">
+                <input type="hidden" name="action" value="login">
+                <input type="text" name="username" placeholder="Username" required >
+                <input type="password" name="password" placeholder="Enter password" required>
+                <button type="submit">Login</button>
+            </form>
+            
+            {% if error %}
+                <p style="color: red;">{{ error }}</p>  <!-- Display error message if login fails -->
+            {% endif %}
+            
+            <a href="{{ url_for('login_with_cubie') }}" class="oauth-button">Login with Cubie</a>
+        </div>
+
+        <div class="form-container">
+            <h2>Sign Up</h2>
+            <form action="{{ url_for('signup') }}" method="POST" enctype="multipart/form-data">
+                <input type="text" name="new_username" placeholder="Enter username" required>
+                <input type="password" name="new_password" placeholder="Enter password" required>
+                <input type="file" name="profile_image" accept="image/*" required>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
