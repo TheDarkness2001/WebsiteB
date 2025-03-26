@@ -20,6 +20,7 @@
                 {% if username %} 
                     <p>{{ username }}</p> 
                     <img src="{{ profile_image }}" alt="Profile Image" width="50" height="50" style="border-radius: 50%;">
+                    <h5>Coins: <span id="coin-balance">{{ session.coins }}</span></h5>
                     <br>
                     <a class="logout-btn" href="{{ url_for('logout') }}">Logout</a>
                 {% endif %}
@@ -51,5 +52,21 @@
     <footer>
         <p>&copy; 2025 Electronics Store. All rights reserved.</p>
     </footer>
+
+
+    <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
+<script>
+    const socket = io("http://localhost:5001");
+
+    socket.on("update_coins", function(data) {
+        document.getElementById("coin-balance").textContent = data.coins;
+    });
+
+    fetch('/get_user_coins')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("coin-balance").textContent = data.coins;
+        });
+</script>
 </body>
 </html>
